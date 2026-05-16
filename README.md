@@ -20,40 +20,6 @@ Upload any German PDF (invoice, contract, report) → extract structured fields 
 **Then ask questions in natural language:**
 > "Welche Zahlungsfrist gilt?" → "30 Tage ab Rechnungsdatum (Seite 1)"
 
----
-
-## Architecture
-
-```
-PDF Upload
-    │
-    ▼
-┌─────────────────────────────────────┐
-│  Layer 1 — Ingestion & Detection    │  ← You are here
-│  PyMuPDF + Tesseract OCR            │
-│  Auto-detects: text / scanned / mixed│
-└─────────────────┬───────────────────┘
-                  │
-    ┌─────────────▼───────────────────┐
-    │  Layer 2 — Embedding & Storage  │  (Week 2)
-    │  sentence-transformers + FAISS  │
-    └─────────────┬───────────────────┘
-                  │
-    ┌─────────────▼───────────────────┐
-    │  Layer 3 — Structured Extraction│  (Week 3)
-    │  Groq API + LangChain + Pydantic│
-    └─────────────┬───────────────────┘
-                  │
-    ┌─────────────▼───────────────────┐
-    │  Layer 4 — RAG Chat             │  (Week 4)
-    │  FAISS retrieval + Groq LLM     │
-    └─────────────┬───────────────────┘
-                  │
-    ┌─────────────▼───────────────────┐
-    │  Layer 5 — API + UI + Deploy    │  (Week 5-6)
-    │  FastAPI + Streamlit + HF Spaces│
-    └─────────────────────────────────┘
-```
 
 ---
 
