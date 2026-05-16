@@ -96,16 +96,13 @@ doculens/
 │       └── generate_samples.py ← Synthetic German invoice generator
 ├── tests/
 │   └── test_ingestion.py
-├── notebooks/
-│   └── 01_ingestion_layer.ipynb
+├── 01_ingestion_layer.ipynb
 ├── data/
 │   ├── samples/               ← Generated test PDFs
 │   └── outputs/               ← Extraction results
 ├── requirements.txt
 └── README.md
 ```
-
----
 
 ## Evaluation results
 
